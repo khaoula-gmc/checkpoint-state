@@ -10,7 +10,7 @@ function App() {
   setTodos(todos.map((todo,k)=>k===i?{...todo,complete: !todo.complete}:todo))
   
 return (
-    <div className="App">
+    <div className="App" >
       <Title/>
       <Form onSubmit={text=>setTodos([{text,complete:false},...todos])}/>
       <ol>

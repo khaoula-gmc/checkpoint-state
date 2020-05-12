@@ -18,7 +18,7 @@ const Form=({onSubmit})=>
         <form onSubmit={e=>{e.preventDefault()
                             onSubmit(text.value)
                             resetValue()}}>
-         <input placeholder='Enter your tasks here!' {...text} style={{margin: 20}}/> 
+         <input placeholder='Enter new task here!' {...text} style={{margin: 20}}/> 
            
         </form>
     )
