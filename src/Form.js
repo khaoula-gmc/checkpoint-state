@@ -12,7 +12,7 @@ const useInputValue=initialValue=>
 
 const Form=({onSubmit})=>
 {
-    const {resetValue,...text}=useInputValue('')
+    const [resetValue,...text]=useInputValue('')
     
     return(
         <form onSubmit={e=>{e.preventDefault()
