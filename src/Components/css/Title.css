@@ -1,0 +1,11 @@
+h1
+{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-style: italic;
+    border-radius: 10px;
+    text-align: center;
+    background-color: brown;
+    color: cornsilk;
+    margin: 20px;
+    margin-top: 20px;
+}

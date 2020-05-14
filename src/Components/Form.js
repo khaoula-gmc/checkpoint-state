@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import './css/Form.css'
 
 const useInputValue=initialValue=>
 {
@@ -12,13 +13,13 @@ const useInputValue=initialValue=>
 
 const Form=({onSubmit})=>
 {
-    const [resetValue,...text]=useInputValue('')
+    const {resetValue,...text}=useInputValue('')
     
     return(
         <form onSubmit={e=>{e.preventDefault()
                             onSubmit(text.value)
                             resetValue()}}>
-         <input placeholder='Enter new task here!' {...text} style={{margin: 20}}/> 
+         <input id='new-task' placeholder='Enter new task here!' {...text} /> 
            
         </form>
     )

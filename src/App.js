@@ -1,27 +1,46 @@
 import React,{useState} from 'react';
-import Form from './Form';
-import Title from './Title';
-
+import './App.css'
+import Form from './Components/Form';
+import Title from './Components/Title';
+import Task from './Components/Task'
+import DelBtn from './Components/DelBtn'
+import EditBtn from './Components/EditBtn'
 
  
 function App() {
   const [todos,setTodos]=useState([])
-  const toggleComplete=i=>
-  setTodos(todos.map((todo,k)=>k===i?{...todo,complete: !todo.complete}:todo))
+  
+  const delTask=(i)=>{
+  
+    const tasks=Object.assign([],todos)
+    tasks.splice(i,1)
+  setTodos(...[tasks])
+  }
+const editTask=(i,text)=>{
+  const newTask=prompt('New task',text)
+          if(newTask!==''){
+          const tasks=Object.assign([],todos)
+          tasks.splice(i,1,newTask)
+          setTodos(...[tasks])
+}
+  }
   
 return (
     <div className="App" >
       <Title/>
-      <Form onSubmit={text=>setTodos([{text,complete:false},...todos])}/>
-      <ol>
-        {todos.map(({ text, complete },i)=>(
-                       <li key={text} 
-                           onClick={()=>toggleComplete(i)} 
-                           style={{textDecoration:complete ? 'line-through' : ' ', color:complete? 'grey':'blue'}}>
-                          {text}
-                      </li>)).reverse()}
-      </ol>
-      <button style={{marginLeft: 40}}onClick={()=>setTodos([])}>Reset</button>
+      <Form onSubmit={text=>{text!==''?setTodos([...todos,text]):setTodos([...todos])}}/>
+      <div className='todos'>
+
+        {todos.map((text,i)=><Task >{text}
+        <div>
+          <EditBtn handlerEdit={()=>editTask(i,text)}/>
+          <DelBtn handlerDel={()=>delTask(i)}/>
+          </div>
+          </Task>)}
+        
+         
+      </div>
+   
     </div>
   );
 }

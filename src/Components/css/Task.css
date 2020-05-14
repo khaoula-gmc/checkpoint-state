@@ -1,0 +1,14 @@
+.Task
+{
+    text-align: left;
+    justify-content: left;
+    margin: 20px;
+    background-color: crimson;
+    padding: 10px;
+    color: floralwhite;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    border-radius: 10px;
+    display:flex;
+    justify-content: space-between;
+    
+}
